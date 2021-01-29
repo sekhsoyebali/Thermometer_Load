@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermometer Reading</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"
+        integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF"
+        crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: #30336b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #heading {
+            color: #ffffff;
+            font-size: 9em;
+            font-family: roboto;
+            font-weight: 500;
+            line-height: 200px;
+            margin-top: 70px;
+        }
+
+        @media screen and (max-width:1050px) {
+            #heading {
+                font-size: 6em;
+                line-height: 150px;
+            }
+        }
+
+        @media screen and (max-width:680px) {
+            #heading {
+                font-size: 4em;
+                line-height: 100px;
+            }
+        }
+
+        @media screen and (max-width:460px) {
+            #heading {
+                font-size: 3em;
+                line-height: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outerDiv">
+        <div id="innerDiv">
+            <h1 id="heading">I am<br>Thermometer <span id="thermo"></span></h1>
+        </div>
+    </div>
+
+    <script>
+        const tempLoad = () => {
+            let thermo = document.getElementById('thermo');
+            thermo.innerHTML = '<i class="fas fa-thermometer-empty"></i>';
+            thermo.style.color = "#f8b627"
+            setTimeout(() => {
+                thermo.innerHTML = '<i class="fas fa-thermometer-quarter"></i>';
+                thermo.style.color = "#F0952A"
+            }, 1000);
+            setTimeout(() => {
+                thermo.innerHTML = '<i class="fas fa-thermometer-half"></i>';
+                thermo.style.color = "#E7732C"
+            }, 2000);
+            setTimeout(() => {
+                thermo.innerHTML = '<i class="fas fa-thermometer-three-quarters"></i>';
+                thermo.style.color = "#DF522F"
+            }, 3000);
+            setTimeout(() => {
+                thermo.innerHTML = '<i class="fas fa-thermometer-full"></i>';
+                thermo.style.color = "#d63031"
+            }, 4000);
+        }
+        setInterval(tempLoad, 5000);
+        tempLoad();
+    </script>
+</body>
+
+</html>
